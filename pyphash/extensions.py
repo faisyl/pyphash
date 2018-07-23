@@ -22,6 +22,7 @@ from ctypes import pointer
 
 # Local package imports
 from .core import ph_dct_imagehash
+from .core import ph_dct_videohash
 from .core import ph_image_digest
 from .core import ph_crosscorr
 from .core import ph_compare_images
@@ -45,6 +46,22 @@ def imagehash(filename):
         byref(_hash)
     )
     return _hash.value
+
+def videohash(filename):
+    """
+    Compute discrete cosine transform robust video hash
+
+    @param filename: str, path to image on which we want to compute the hash
+    @returns: list of hashes
+    """
+
+    _length = c_int()
+    _hash = ph_dct_videohash(
+        _filename_bytes(filename),
+        byref(_length)
+    )
+    print(_hash, _length)
+    return _hash[:_length.value]
 
 
 def image_digest(filename, sigma=1.0, gamma=1.0, lines=180):

@@ -41,6 +41,11 @@ ph_dct_imagehash.restype = c_int
 ph_dct_imagehash.argtypes = [c_char_p, POINTER(c_ulonglong)]
 
 
+# DCT Video Hash
+ph_dct_videohash = libphash.ph_dct_videohash
+ph_dct_videohash.restype = POINTER(c_ulonglong)
+ph_dct_videohash.argtypes = [c_char_p, POINTER(c_int)]
+
 # Image Digests
 ## int ph_image_digest(const char *file, double sigma, double gamma, Digest &digest,int N=180);
 ph_image_digest = libphash.ph_image_digest

@@ -12,19 +12,23 @@ from __future__ import unicode_literals
 
 # Local Package imports
 from .extensions import imagehash
+from .extensions import videohash
 from .extensions import image_digest
 from .extensions import cross_correlation
 from .extensions import compare_images
 from .extensions import texthash
 from .extensions import compare_text_hashes
+from .native import hamming_distance
 
 
 # Package definitions
 ALL = [
     'imagehash',
+    'videohash',
     'image_digest',
     'cross_correlation',
     'compare_images',
     'texthash',
     'compare_text_hashes',
+    'hamming_distance'
 ]
